@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-steel-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-navy-900 antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  ::selection {
+    @apply bg-amber-500 text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid #c6791f;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-widest2 text-amber-600;
+  }
+
+  .eyebrow-light {
+    @apply font-mono text-[11px] uppercase tracking-widest2 text-amber-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 ease-out disabled:pointer-events-none disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-amber-500 text-navy-950 shadow-[0_1px_0_rgba(255,255,255,0.3)_inset] hover:bg-amber-400 active:bg-amber-600;
+  }
+
+  .btn-outline {
+    @apply btn border border-navy-700/30 bg-transparent text-navy-900 hover:border-navy-900 hover:bg-navy-900 hover:text-white;
+  }
+
+  .btn-outline-light {
+    @apply btn border border-white/30 bg-transparent text-white hover:border-white hover:bg-white hover:text-navy-950;
+  }
+
+  .btn-ghost {
+    @apply btn text-navy-900 hover:text-amber-600;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.25s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .bg-blueprint {
+    background-image:
+      linear-gradient(rgba(230, 235, 240, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230, 235, 240, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-blueprint-dark {
+    background-image:
+      linear-gradient(rgba(148, 162, 174, 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 162, 174, 0.14) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
